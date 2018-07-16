@@ -8,6 +8,8 @@ mosquitto_sub -t sensor/temperature
 mosquitto_pub -t sensor/temperature -m 42
 ```
 
+The example MQTT subscriber is taken from https://github.com/eclipse/paho.mqtt.python/blob/master/examples/client_sub.py
+
 
 
 ***
