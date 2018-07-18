@@ -26,3 +26,13 @@ https://github.com/confluentinc/confluent-kafka-python
 
 The example using the REST Proxy is taken from
 https://docs.confluent.io/current/kafka-rest/docs/intro.html
+
+
+
+***
+### InfluxDB
+
+```
+influxd -config /usr/local/etc/influxdb.conf
+```
+

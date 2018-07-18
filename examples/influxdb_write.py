@@ -1,7 +1,7 @@
 from influxdb import InfluxDBClient
 
 #client = InfluxDBClient(host, port, user, password, dbname)
-client = InfluxDBClient("localhost", 8086)
+client = InfluxDBClient("localhost", 8086, "admin", "admin")
 
 client.create_database("plant_monitor")
 client.switch_database("plant_monitor")
@@ -13,8 +13,17 @@ measurement = {"moisture": 34, "timestamp": "2018-07-17 06:53:06.894367", "tempe
 json_body =\
     [
         {
-            "measurement": "plant_monitor",
-             "fields": measurement
+            "measurement": "miflora",
+            "tags": {
+                "device": measurement["device"]
+            },
+            "fields": {
+                "mositure": measurement["moisture"],
+                "temperature": measurement["temperature"],
+                "conductivity": measurement["conductivity"],
+                "light": measurement["light"],
+                "timestamp": measurement["timestamp"]
+            }
         }
     ]
 
